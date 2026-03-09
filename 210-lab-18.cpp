@@ -30,8 +30,29 @@ int main()
     cin.ignore(1000, 10);
     
     while (yn == 'y' || yn == 'Y') {
-        cout << "Enter rview rating 0-5: ";
+        cout << "Enter review rating 0-5: ";
+        cin >> buf; rating = atof(buf.c_str());
+        cin.ignore(1000, 10);
 
+        cout << "Enter review comments: ";
+        getline(cin, comment);
+
+        if (choice == 1) {
+            addToHead(head, rating, comment);
+        }
+        else if(choice == 2) {
+            addToTail(head, rating, comment);
+        }
+        else {
+            cout << "Invalid choice" << endl;
+        }
+
+        cout << "Enter another review? Y/N: ";
+        getline(cin, yn);
+
+        
+        cout << "Enter another review Y/N: ";
+        cin >> buf; yn 
     }
 
 }
