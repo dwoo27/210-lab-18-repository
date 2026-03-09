@@ -11,7 +11,7 @@ struct Node{
 
 void addToHead(Node*&, double, string);
 void addToTail(Node*&, double, string);
-void outputRevs(Node*&);
+void outputRevs(Node*);
 
 int main()
 {
@@ -21,13 +21,24 @@ int main()
     char yn = 'y';
     double rating;
     string comment;
+    bool valid = false;
 
-    cout << "Which linked list method should we use?" << endl;
-    cout << "\t[1] New nodes are addes at the head of the linked list" << endl;
-    cout << "\t[2] New nodes are added at the tail of the linked list" << endl;
-    cout << "\tChoice: ";
-    cin >> buf; choice = atoi(buf.c_str());
-    cin.ignore(1000, 10);
+    while (!valid) {
+        cout << "Which linked list method should we use?" << endl;
+        cout << "\t[1] New nodes are addes at the head of the linked list" << endl;
+        cout << "\t[2] New nodes are added at the tail of the linked list" << endl;
+        cout << "\tChoice: ";
+        cin >> buf; choice = atoi(buf.c_str());
+        cin.ignore(1000, 10);
+
+        if (choice == 1 || choice == 2) {
+            valid = true;
+            break;
+        }
+
+        cout << "Invalid choice" << endl;
+    }
+    
     
     while (yn == 'y' || yn == 'Y') {
         cout << "Enter review rating 0-5: ";
@@ -40,20 +51,16 @@ int main()
         if (choice == 1) {
             addToHead(head, rating, comment);
         }
-        else if(choice == 2) {
+        else{
             addToTail(head, rating, comment);
         }
-        else {
-            cout << "Invalid choice" << endl;
-        }
+
 
         cout << "Enter another review? Y/N: ";
-        getline(cin, yn);
-
-        
-        cout << "Enter another review Y/N: ";
-        cin >> buf; yn 
+        cin >> yn;
+        cin.ignore(1000, 10);
     }
+    outputRevs(head);
 
 }
 
@@ -91,23 +98,23 @@ void addToTail(Node*& head, double rating, string comment) {
 
 }
 
-void outputRevs(Node*& head) {
+void outputRevs(Node* head) {
     if (!head) { //check for empty list
         cout << "No reviews" << endl;
         return;
     }
     Node* traverse = head; //node for traversing list
-    int count;
-    double total;
+    int count = 0;
+    double total = 0;
     
     cout << "Outputting all reviews: " << endl;
     while (traverse) { //while traverse isn't beyond tail
-        cout << "\t Review #" << ++count << ": " << traverse->rating
+        cout << "\t> Review #" << ++count << ": " << traverse->rating
             << ": " << traverse->comment << endl;
         total += traverse->rating;
         traverse = traverse->next;
     }
 
-    cout << "\tAverage: " << (total / count) << endl;
+    cout << "\t> Average: " << (total / count) << endl;
 
 }

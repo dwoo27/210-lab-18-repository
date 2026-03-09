@@ -1,3 +1,2 @@
 ﻿  210-lab-18.cpp
-C:\Users\dylan\source\repos\210-lab-18\210-lab-18.cpp(64,1): error C4700: uninitialized local variable 'count' used
-C:\Users\dylan\source\repos\210-lab-18\210-lab-18.cpp(66,1): error C4700: uninitialized local variable 'total' used
+  210-lab-18.vcxproj -> C:\Users\dylan\source\repos\210-lab-18\x64\Debug\210-lab-18.exe
