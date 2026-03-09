@@ -16,3 +16,36 @@ int main()
     std::cout << "Hello World!\n";
 }
 
+void addToHead(Node*& head, double rating, string comment) {
+    Node* newReview = new Node;
+    newReview->rating = rating;
+    newReview->comment = comment;
+
+    if (!head) { //if list empty, make new review head
+        head = newReview;
+        newReview->next = nullptr;
+    }
+    else { //otherwise, set new review to be before head, make it new head
+        newReview->next = head;
+        head = newReview;
+    }
+}
+
+void addToTail(Node*& head, double rating, string comment) {
+    Node* newReview = new Node;
+    newReview->rating = rating;
+    newReview->comment = comment;
+    newReview->next = nullptr;
+    
+    if (!head) {
+        head = newReview;
+    }
+    else {
+        Node* traverse = head; //create node for traversing list
+        while (traverse->next) { //while traverse pointer doesn't point to null
+            traverse = traverse->next; //traverse through list
+        }
+        traverse->next = newReview; //tail points to new review to become new tail
+    }
+
+}
