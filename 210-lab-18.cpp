@@ -15,9 +15,25 @@ void outputRevs(Node*&);
 
 int main()
 {
-    Node* head = new Node;
-    int choice;
+    Node* head = nullptr;
     string buf;
+    int choice;
+    char yn = 'y';
+    double rating;
+    string comment;
+
+    cout << "Which linked list method should we use?" << endl;
+    cout << "\t[1] New nodes are addes at the head of the linked list" << endl;
+    cout << "\t[2] New nodes are added at the tail of the linked list" << endl;
+    cout << "\tChoice: ";
+    cin >> buf; choice = atoi(buf.c_str());
+    cin.ignore(1000, 10);
+    
+    while (yn == 'y' || yn == 'Y') {
+        cout << "Enter rview rating 0-5: ";
+
+    }
+
 }
 
 void addToHead(Node*& head, double rating, string comment) {
