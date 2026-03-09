@@ -20,10 +20,10 @@ void addToHead(Node*& head, double rating, string comment) {
     Node* newReview = new Node;
     newReview->rating = rating;
     newReview->comment = comment;
+    newReview->next = nullptr;
 
     if (!head) { //if list empty, make new review head
         head = newReview;
-        newReview->next = nullptr;
     }
     else { //otherwise, set new review to be before head, make it new head
         newReview->next = head;
@@ -37,7 +37,7 @@ void addToTail(Node*& head, double rating, string comment) {
     newReview->comment = comment;
     newReview->next = nullptr;
     
-    if (!head) {
+    if (!head) { //if list empty, make new review head
         head = newReview;
     }
     else {
@@ -46,6 +46,14 @@ void addToTail(Node*& head, double rating, string comment) {
             traverse = traverse->next; //traverse through list
         }
         traverse->next = newReview; //tail points to new review to become new tail
+    }
+
+}
+
+void outputRevs(Node*& head) {
+    if (!head) {
+        cout << "No reviews" << endl;
+        return;
     }
 
 }
