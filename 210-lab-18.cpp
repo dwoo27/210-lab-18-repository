@@ -55,5 +55,18 @@ void outputRevs(Node*& head) {
         cout << "No reviews" << endl;
         return;
     }
+    Node* traverse = head;
+    int count;
+    double total;
+    
+    cout << "Outputting all reviews: " << endl;
+    while (traverse) {
+        cout << "\t Review #" << ++count << ": " << traverse->rating
+            << ": " << traverse->comment << endl;
+        total += traverse->rating;
+        traverse = traverse->next;
+    }
+
+    cout << "\tAverage: " << (total / count) << endl;
 
 }
