@@ -1,4 +1,6 @@
 #include <iostream>
+#include <cstdlib>
+#include <string>
 using namespace std;
 
 struct Node{
@@ -13,7 +15,9 @@ void outputRevs(Node*&);
 
 int main()
 {
-    std::cout << "Hello World!\n";
+    Node* head = new Node;
+    int choice;
+    string buf;
 }
 
 void addToHead(Node*& head, double rating, string comment) {
@@ -51,16 +55,16 @@ void addToTail(Node*& head, double rating, string comment) {
 }
 
 void outputRevs(Node*& head) {
-    if (!head) {
+    if (!head) { //check for empty list
         cout << "No reviews" << endl;
         return;
     }
-    Node* traverse = head;
+    Node* traverse = head; //node for traversing list
     int count;
     double total;
     
     cout << "Outputting all reviews: " << endl;
-    while (traverse) {
+    while (traverse) { //while traverse isn't beyond tail
         cout << "\t Review #" << ++count << ": " << traverse->rating
             << ": " << traverse->comment << endl;
         total += traverse->rating;
